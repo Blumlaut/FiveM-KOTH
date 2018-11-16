@@ -26,21 +26,22 @@ end)
 
 Citizen.CreateThread(function()
 	while true do
-		if changingMap == true then break end -- Can it be any more hacky then this?
 		Wait(100)
-		local x,y,z = table.unpack(GetEntityCoords(PlayerPedId(), true))
-		local dist = GetDistanceBetweenCoords(x, y, z, zone.x, zone.y, zone.z, false)
-		
-		if dist < zone.r-math.pi and not isPlayerInZone and not IsPlayerDead(PlayerId()) then
-			TriggerServerEvent("PlayerEnteredKothZone",Teaminfo.id)
-			Citizen.Trace("entered warzone")
-			isPlayerInZone = true
-		elseif dist > zone.r-math.pi and isPlayerInZone then
-			TriggerServerEvent("PlayerLeftKothZone",Teaminfo.id)
-			isPlayerInZone = false
-		elseif isPlayerInZone and IsPlayerDead(PlayerId()) then
-			TriggerServerEvent("PlayerLeftKothZone",Teaminfo.id)
-			isPlayerInZone = false 
+		if zone.r and not changingMap then
+			local x,y,z = table.unpack(GetEntityCoords(PlayerPedId(), true))
+			local dist = GetDistanceBetweenCoords(x, y, z, zone.x, zone.y, zone.z, false)
+			
+			if dist < zone.r-math.pi and not isPlayerInZone and not IsPlayerDead(PlayerId()) then
+				TriggerServerEvent("PlayerEnteredKothZone",Teaminfo.id)
+				Citizen.Trace("entered warzone")
+				isPlayerInZone = true
+			elseif dist > zone.r-math.pi and isPlayerInZone then
+				TriggerServerEvent("PlayerLeftKothZone",Teaminfo.id)
+				isPlayerInZone = false
+			elseif isPlayerInZone and IsPlayerDead(PlayerId()) then
+				TriggerServerEvent("PlayerLeftKothZone",Teaminfo.id)
+				isPlayerInZone = false 
+			end
 		end
 	end
 end)
