@@ -74,14 +74,13 @@ function createBlip(zone)
 end
 
 AddEventHandler("changeMap",function(zone) -- Changing blip and zone here
-	Citizen.CreateThread(function()
-		if zoneArea ~= nil then
-			RemoveBlip(zoneArea)
-			RemoveBlip(zoneBlip)
-		end
-		changeMap = true
-		Citizen.Wait(120)
-		createZone(zone)
-		createBlip(zone)
-	end)
+	print("changing map")
+	if zoneArea ~= nil then
+		RemoveBlip(zoneArea)
+		RemoveBlip(zoneBlip)
+	end
+	changeMap = true
+	Citizen.Wait(120)
+	createZone(zone)
+	createBlip(zone)
 end)

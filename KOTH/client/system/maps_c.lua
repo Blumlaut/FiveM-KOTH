@@ -17,6 +17,9 @@ AddEventHandler('getMapDirectives', function(add)
             end
         end
     end)
+		
+		Wait(1000)
+		LoadMapData()
 end)
 
 AddEventHandler('getMapDirectives', function(add)
@@ -69,7 +72,6 @@ end)
 
 AddEventHandler('getMapDirectives', function(add)
     -- add a custom data
-		LoadMapData()
     add("vehicleSpawns", function(state, arg1, arg2)
         -- do something with the custom data
         mapData.vehicleSpawns = arg1
@@ -86,7 +88,6 @@ end)
 
 AddEventHandler('getMapDirectives', function(add)
     -- add a custom data
-		LoadMapData()
     add("zoneconfig", function(state, arg1, arg2)
         -- do something with the custom data
         mapData.zoneconfig = arg1
@@ -105,8 +106,8 @@ end)
 
 function LoadMapData()
 	repeat
-		Wait(50)
-	until (mapData.spawns and Teaminfo.id ~= 0)
+		Wait(500)
+	until (mapData.koth and mapData.spawns and Teaminfo.id ~= 0)
 	TriggerServerEvent("whatMapAreWeOn")
 	setNewSpawnPoints()
 	TriggerEvent("changeMap", {x = mapData.koth[1], y = mapData.koth[2], z = mapData.koth[3], r = mapData.koth[4]} )
