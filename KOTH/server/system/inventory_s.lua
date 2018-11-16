@@ -27,6 +27,11 @@ end
 
 function getPlayerData(player)
 	local identifier = getIdentifier(player)
+	if not playerDataCache[identifier] then
+		playerDataCache[identifier] = defaultDataSet
+		TriggerClientEvent("updatePlayerData", player, defaultDataSet)
+		savePlayerData(player)
+	end
 	return playerDataCache[identifier]
 end
 
