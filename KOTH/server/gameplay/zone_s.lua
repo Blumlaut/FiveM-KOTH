@@ -28,7 +28,7 @@ end)
 
 Citizen.CreateThread(function()
 	while true do
-		Citizen.Wait(5000)
+		Citizen.Wait(Settings.ZoneRefresh*1000)
 		for i,team in ipairs(Teams) do
 			Teams[i].active = 0
 		end
@@ -54,15 +54,15 @@ Citizen.CreateThread(function()
 				end
 		end
 		
-		if Teams[highestIndex].points == 100 then -- did the game end?
+		if Teams[highestIndex].points == Settings.MaxPoints then -- did the game end?
 		print("game ended")
 			TriggerClientEvent("SetGameFinished", -1, Teams[highestIndex])
 			for i,player in pairs(PlayersInZone) do
 				if player.team == highestIndex then
-					setPlayerData(player.id, {money = getPlayerData(player.id).money+5000 })
+					setPlayerData(player.id, {money = getPlayerData(player.id).money+Settings.WinReward })
 					Citizen.Wait(0)
 				else
-					setPlayerData(player.id, {money = getPlayerData(player.id).money+1000 })
+					setPlayerData(player.id, {money = getPlayerData(player.id).money+Settings.ParticipationReward })
 				end
 			end
 			Citizen.Wait(10000)
@@ -92,10 +92,10 @@ Citizen.CreateThread(function()
 		
 		for i,player in pairs(PlayersInZone) do
 			if player.team == highestIndex and not (contested and highestValue>0) then
-					setPlayerData(player.id, {money = getPlayerData(player.id).money+25 })
+					setPlayerData(player.id, {money = getPlayerData(player.id).money+Settings.CaptureReward })
 			    Citizen.Wait(0)
 			else
-					setPlayerData(player.id, {money = getPlayerData(player.id).money+10 })
+					setPlayerData(player.id, {money = getPlayerData(player.id).money+Settings.AttackReward })
 			    Citizen.Wait(0)
 			end
 		end

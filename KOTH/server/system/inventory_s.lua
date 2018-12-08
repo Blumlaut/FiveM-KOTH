@@ -2,7 +2,7 @@ local filePath = 'resources/koth/data/'
 -- Load player from json files or create his json file
 playerDataCache = {}
 playerIdentifierCache = {}
-defaultDataSet = {rank = 1, exp = 0, loadout = {}, money = 1500}
+defaultDataSet = {rank = 1, exp = 0, loadout = {}, money = Settings.DefaultMoney}
 
 function utilizePlayerData(player) -- Pulls all the data table from /data/playerdatatable.txt
 	local playerIdentifier = getIdentifier(player)
@@ -102,8 +102,4 @@ end)
 RegisterCommand("givemoney", function(args, rawCommand)
 	local money = getPlayerData(source).money
 	setPlayerData(source, {money = money+args[1]})
-end, false)
-
-RegisterCommand("gotoshop", function(args, rawCommand)
-	TriggerClientEvent('teleportPlayer',source,-1154.0,-2715.0,20.0)
 end, false)

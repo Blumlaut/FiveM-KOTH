@@ -1,4 +1,4 @@
-dataSet = {rank = 1, exp = 0, loadout = {}, money = 1500}
+dataSet = {rank = 1, exp = 0, loadout = {}, money = Settings.DefaultMoney}
 
 RegisterNetEvent('updatePlayerData')
 RegisterNetEvent('teleportPlayer')

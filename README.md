@@ -5,7 +5,9 @@ Arma-Inspired KOTH Gamemode for FiveM
 Just install it my dude
 
 ## Configuration
-not yet
+The Gamemode can be configured in the "config.lua" file in the Resource Root Directory.
+
+Maps also configure their gamemode to their needs, which can be configured in the map.lua file in the map resource.
 
 ## Contribution
 Pull Requests will be accepted if they are within "sane" coding standards

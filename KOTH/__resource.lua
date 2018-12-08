@@ -3,6 +3,7 @@ resource_type 'gametype' { name = 'koth' }
 
 
 server_scripts {
+	"config.lua",
 	"server/util_s.lua",
 	"shared/util_shared.lua",
 	"server/system/inventory_s.lua",
@@ -12,6 +13,7 @@ server_scripts {
 } 
 
 client_scripts {
+	"config.lua",
 	"client/util_c.lua",
 	"shared/util_shared.lua",
 	"client/gameplay/basics_c.lua",
