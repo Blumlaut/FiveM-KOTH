@@ -61,6 +61,7 @@ function createBlip(zone)
 end
 
 AddEventHandler("SetZoneOwner", function(teamid)
+	print(teamid)
 	if teamid and teamid ~= -2 then
 		SetBlipColour(zoneArea, mapData.teams[teamid][2][4])
 		SetBlipColour(zoneBlip, mapData.teams[teamid][2][4])
