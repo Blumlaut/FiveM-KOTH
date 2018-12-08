@@ -66,6 +66,7 @@ Citizen.CreateThread(function()
 				end
 			end
 			Citizen.Wait(10000)
+			TriggerClientEvent("chat:addMessage", -1, { templateId = "default", args = { "Game","Changing Maps.." } })
 			TriggerEvent("mapmanager:roundEnded")
 			Wait(1000)
 			TriggerEvent("resetRound")
