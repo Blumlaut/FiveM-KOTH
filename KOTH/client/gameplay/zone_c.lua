@@ -64,10 +64,12 @@ AddEventHandler("SetZoneOwner", function(teamid)
 	if teamid then
 		SetBlipColour(zoneArea, mapData.teams[teamid][2][4])
 		SetBlipColour(zoneBlip, mapData.teams[teamid][2][4])
-	else
+	elseif teamid == -2 then -- if zone is contested
+		SetBlipColour(zoneArea, 5)
+		SetBlipColour(zoneBlip, 5)
+	else 
 		SetBlipColour(zoneArea, 4)
 		SetBlipColour(zoneBlip, 4)
-	end
 end)
 
 AddEventHandler("changeMap",function(nzone) -- Changing blip and zone here

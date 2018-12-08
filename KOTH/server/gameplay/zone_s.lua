@@ -28,7 +28,7 @@ end)
 
 Citizen.CreateThread(function()
 	while true do
-		Citizen.Wait(10000)
+		Citizen.Wait(5000)
 		for i,team in ipairs(Teams) do
 			Teams[i].active = 0
 		end
@@ -61,6 +61,8 @@ Citizen.CreateThread(function()
 				if player.team == highestIndex then
 					setPlayerData(player.id, {money = getPlayerData(player.id).money+5000 })
 					Citizen.Wait(0)
+				else
+					setPlayerData(player.id, {money = getPlayerData(player.id).money+1000 })
 				end
 			end
 			Citizen.Wait(10000)
@@ -70,9 +72,12 @@ Citizen.CreateThread(function()
 		end
 		
 		
-		if highestValue == 0 or (contested and highestValue>0) then
+		if highestValue == 0 and not contested then
 			Citizen.Trace("zone owner is noone!")
 			TriggerClientEvent("SetZoneOwner", -1, false,false)
+		elseif (contested and highestValue>0) then
+			Citizen.Trace("zone is contested!")
+			TriggerClientEvent("SetZoneOwner", -2, false,false)
 		else
 			Citizen.Trace("zone owner is "..Teams[highestIndex].name)
 			TriggerClientEvent("SetZoneOwner", -1, highestIndex)
