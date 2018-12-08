@@ -1,7 +1,7 @@
 local currentZoneOwner=false
 
 AddEventHandler("SetZoneOwner", function(teamid)
-	if teamid then
+	if teamid and not teamid == -2 then
 		currentZoneOwner = {name = mapData.teams[teamid][1], colour=mapData.teams[teamid][2]}
 	elseif teamid == -2 then
 		currentZoneOwner = {name = "Contested", colour={255, 191, 0}}
