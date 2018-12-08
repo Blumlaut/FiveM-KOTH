@@ -19,8 +19,8 @@ local zoneBlip = nil
 local changingMap = false
 
 
-AddEventHandler("SetGameFinished", function(teamid) -- todo, add ranking ui or some shit
-	TriggerEvent("chat:addMessage", { templateId = "default", args = { "Game","^1Game Finished, Team "..mapData.teams[teamid][1].." Won!" } })
+AddEventHandler("SetGameFinished", function(team) -- todo, add ranking ui or some shit
+	TriggerEvent("chat:addMessage", { templateId = "default", args = { "Game","^1Game Finished, Team "..team.name.." Won!" } })
 
 end)
 
