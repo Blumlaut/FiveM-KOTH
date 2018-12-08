@@ -101,9 +101,9 @@ Citizen.CreateThread(function()
 				SetPedRelationshipGroupHash(GetPlayerPed(Player), 'enemy')
 			end 
 		end
-		SetTimeout(20000, UpdateTeamMembers)
+		SetTimeout(5000, UpdateTeamMembers)
 	end
-	SetTimeout(20000, UpdateTeamMembers)
+	SetTimeout(5000, UpdateTeamMembers)
 	AddEventHandler("UpdateBlips", UpdateTeamMembers)
 	
 end)
