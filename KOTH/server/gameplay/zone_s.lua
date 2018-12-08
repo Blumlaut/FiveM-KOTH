@@ -78,7 +78,7 @@ Citizen.CreateThread(function()
 			TriggerClientEvent("SetZoneOwner", -1, false,false)
 		elseif (contested and highestValue>0) then
 			Citizen.Trace("zone is contested!")
-			TriggerClientEvent("SetZoneOwner", -2, false,false)
+			TriggerClientEvent("SetZoneOwner", -1, -2,false)
 		else
 			Citizen.Trace("zone owner is "..Teams[highestIndex].name)
 			TriggerClientEvent("SetZoneOwner", -1, highestIndex)
