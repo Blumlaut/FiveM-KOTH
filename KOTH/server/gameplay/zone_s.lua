@@ -56,7 +56,7 @@ Citizen.CreateThread(function()
 		
 		if Teams[highestIndex].points == 100 then -- did the game end?
 		print("game ended")
-			TriggerClientEvent("SetGameFinished", -1, Teams[highestIndex].name, Teams[highestIndex].colour)
+			TriggerClientEvent("SetGameFinished", -1, Teams[highestIndex])
 			for i,player in pairs(PlayersInZone) do
 				if player.team == highestIndex then
 					setPlayerData(player.id, {money = getPlayerData(player.id).money+5000 })
