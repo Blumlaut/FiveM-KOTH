@@ -20,7 +20,7 @@ local changingMap = false
 
 
 AddEventHandler("SetGameFinished", function(team) -- todo, add ranking ui or some shit
-	TriggerEvent("chat:addMessage", { templateId = "default", args = { "Game","^1Game Finished, Team "..team.name.." Won!" } })
+	TriggerEvent("chat:addMessage", { templateId = "default", args = { "Game","^1Game Finished, Team "..mapData.teams[team.id][1].." Won!" } })
 
 end)
 
