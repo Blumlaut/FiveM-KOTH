@@ -1,6 +1,5 @@
 AddEventHandler("playerSpawned", function()
-    NetworkSetFriendlyFireOption(true)
-    SetCanAttackFriendly(PlayerPedId(), true, true)
+    NetworkSetFriendlyFireOption(false)
 end)
 
 Citizen.CreateThread(function()

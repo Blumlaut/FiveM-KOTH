@@ -66,7 +66,10 @@ end)
 Citizen.CreateThread(function()
 
 TriggerServerEvent("jointeam", false, GetPlayerName(PlayerId()))
-
+AddRelationshipGroup('friendly')
+AddRelationshipGroup('enemy')
+SetRelationshipBetweenGroups(5, 'friendly', 'enemy')
+SetRelationshipBetweenGroups(5, 'enemy', 'friendly')
 
 end)
 
@@ -75,6 +78,7 @@ Citizen.CreateThread(function()
 
 
 	function UpdateTeamMembers()
+		SetPedRelationshipGroupHash(PlayerPedId(), 'friendly') 
 		ptable = GetPlayers()
 		for id, Player in ipairs(ptable) do
 			isTeamMate = false
@@ -83,6 +87,7 @@ Citizen.CreateThread(function()
 					if playersDB[Player].blip then RemoveBlip(playersDB[Player].blip) end
 					isTeamMate = true
 					local ped = GetPlayerPed(GetPlayerFromServerId(theTeammate))
+					SetPedRelationshipGroupHash(ped, 'friendly') 
 					local blip = AddBlipForEntity(ped)
 					SetBlipSprite(blip, 1)
 					SetBlipColour(blip, Teaminfo.colour[4])
@@ -92,6 +97,9 @@ Citizen.CreateThread(function()
 					playersDB[Player].blip = blip
 				end
 			end
+			if isTeamMate == false and GetPlayerPed(Player) then
+				SetPedRelationshipGroupHash(GetPlayerPed(Player), 'enemy')
+			end 
 		end
 		SetTimeout(20000, UpdateTeamMembers)
 	end
