@@ -43,6 +43,7 @@ AddEventHandler('getMapDirectives', function(add)
     add("shops", function(state, arg1, arg2)
         -- do something with the custom data
         mapData.shops = arg1
+				ShopCoords = arg1
         state.add("shops", {arg1 = arg1})
     end, function(state, arg)
         -- cleaning up whatever the map did above

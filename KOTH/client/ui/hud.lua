@@ -154,3 +154,9 @@ Citizen.CreateThread(function()
 		end
 	end
 end)
+
+function DrawMissonText(text, duration, drawImmediately)
+	BeginTextCommandPrint("STRING")
+	AddTextComponentString(text)
+	EndTextCommandPrint(duration, drawImmediately)
+end
