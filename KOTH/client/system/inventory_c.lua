@@ -46,9 +46,9 @@ Citizen.CreateThread(function()
 		if ShopCoords then -- make sure the shop coords aren't being changed as we speak
 			for i,Shop in ipairs(ShopCoords) do
 				if Shop.active then -- make sure it even exists
-					DrawMarker(1, Shop[1], Shop[2], Shop[3], 0, 0, 0, 0, 0, 0, 2.0, 2.0, 2.0, 0, 157, 0, 155, 0, 0, 2, 0, 0, 0, 0)
-					if(GetDistanceBetweenCoords(px,py,pz,x,y,z,true)< 2) then
-						DrawMissonText("Press ~y~E~w~ to do a thingy", 100,false)
+					DrawMarker(1, Shop[1], Shop[2], Shop[3]-1.0, 0, 0, 0, 0, 0, 0, 2.0, 2.0, 2.0, 0, 157, 0, 155, 0, 0, 2, 0, 0, 0, 0)
+					if(GetDistanceBetweenCoords(px,py,pz,Shop[1], Shop[2], Shop[3],true)< 2.0) then
+						DrawMissonText("Press ~y~E~w~ to do a thingy", 100,true)
 						if IsControlJustPressed(1, 51) then
 							-- Thingy has been done, TODO: Add menu thingies and make shops work lololol
 						end
