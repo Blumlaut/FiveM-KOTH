@@ -1,5 +1,11 @@
 # FiveM-KOTH
 Arma-Inspired KOTH Gamemode for FiveM
+discord.gg/2SdrPFF
+
+## What's a KOTH?
+FiveM Koth is a Team vs Team vs Team ( that's 3 teams! ) Gamemode based on Arma 3's Famous King of the Hill Gamemode, the main objective of the gamemode is to bring as many of your teammates into the zone while removing as many enemy players from it as possible.
+
+Winner is the Team that can keep a large amount of their team inside their zone until they have reached 100 Points.
 
 ## Installation
 Just install it my dude
