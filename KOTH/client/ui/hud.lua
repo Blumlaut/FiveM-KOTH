@@ -75,7 +75,6 @@ Citizen.CreateThread(function()
 				DrawSprite("king_of_the_hill", "box", 0.75+i/15, 0.9, 0.04, 0.065, 0.0, team[2][1], team[2][2], team[2][3], 255)
 				--for a = 1, 25 do
 				for a = 1, currentSafezoneStats.players[i] do
-					--local newLine = math.round(a/5)
 					local newLine = 1
 					
 					local ta = 0
@@ -86,15 +85,6 @@ Citizen.CreateThread(function()
 							newLine = newLine+1
 						end
 					end
-					--print("TA: "..ta.. ", NL:"..newLine)
-					--[[
-					if a > 5 then
-						ta = a-5
-						repeat
-							ta = ta-5
-						until ta<=5
-					end
-					]]
 					DrawRect((0.730+(ta/160))+(i/15), 0.868+(newLine/100), 0.005, 0.008, 255, 255, 255, 255)
 				end
 				SetTextFont(4)
