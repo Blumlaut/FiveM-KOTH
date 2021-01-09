@@ -1,3 +1,5 @@
+# This gamemode is 2 years old and most likely broken, unless you have experience in programming, this gamemode will most likely not work at all, if you are experienced in programming, please create a fork and push your fixes there, people will appreciate it!
+
 # FiveM-KOTH
 Arma-Inspired KOTH Gamemode for FiveM
 
